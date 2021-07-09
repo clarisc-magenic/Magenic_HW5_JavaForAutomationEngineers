@@ -35,11 +35,11 @@ public class UserHelperMethods {
     }
 
     /**
-     * Prints the given list of songs to the console
-     * @param movies The list of songs
+     * Prints the given list of movies to the console
+     * @param movies The list of movies
      */
     public static void printMovies(List<Movie> movies) {
-        // For each song in the list print the index and the song
+        // For each movie in the list print the index and the movie
         for (int i = 0; i < movies.size(); i++) {
             System.out.println(i + ". " + movies.get(i));
         }
@@ -91,21 +91,21 @@ public class UserHelperMethods {
     }
 
     /**
-     * Displays the song options and waits for the user to enter a valid options
-     * @param songOptions The list of song options
-     * @return The index of the selected song option
+     * Displays the movie options and waits for the user to enter a valid options
+     * @param movieOptions The list of movie options
+     * @return The index of the selected movie option
      */
-    public static int displayOptionsAndWaitForValidOption(List<Movie> songOptions) {
-        // Creates an array of all the song text
-        String[] songText = new String[songOptions.size()];
+    public static int displayOptionsAndWaitForValidOption(List<Movie> movieOptions) {
+        // Creates an array of all the movie text
+        String[] movieText = new String[movieOptions.size()];
 
-        // Fills the sonText array with the string versions of each song
-        for (int i = 0; i < songOptions.size(); i++) {
-            songText[i] = songOptions.get(i).toString();
+        // Fills the sonText array with the string versions of each movie
+        for (int i = 0; i < movieOptions.size(); i++) {
+            movieText[i] = movieOptions.get(i).toString();
         }
 
         // Calls the other displayOptionsAndWaitForValidOption method now that the data type is correct
-        return displayOptionsAndWaitForValidOption(songText);
+        return displayOptionsAndWaitForValidOption(movieText);
     }
 
     /**

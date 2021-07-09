@@ -21,7 +21,7 @@ public class Movie implements Comparable<Movie> {
 
     /**
      * Creates an instance of the Movie class
-     * @param title The song name
+     * @param title The movie title
      * @param genre The artist's name
      */
     public Movie(String title, String genre, boolean checkoutStatus) {
@@ -105,16 +105,16 @@ public class Movie implements Comparable<Movie> {
      */
     @Override
     public boolean equals(Object obj) {
-        // Checks if 'obj' is null or can't be assigned to a 'models.Song' class
+        // Checks if 'obj' is null or can't be assigned to a 'models.Movie' class
         if (obj == null || !Movie.class.isAssignableFrom(obj.getClass())) {
             return false;
         }
 
-        // Casts the 'obj' to a 'models.Song' object
-        final Movie otherSong = (Movie)obj;
+        // Casts the 'obj' to a 'models.Movie' object
+        final Movie otherMovie = (Movie)obj;
 
         // Checks if the name and artist are the same
-        if (this.getTitle().equals(otherSong.getTitle()) && this.getGenre().equals(otherSong.getGenre())) {
+        if (this.getTitle().equals(otherMovie.getTitle()) && this.getGenre().equals(otherMovie.getGenre())) {
             return true;
         }
 
@@ -126,7 +126,7 @@ public class Movie implements Comparable<Movie> {
      * IMPORTANT NOTE: THIS METHOD IS NEEDED FOR SIMPLICITY IN THE HOMEWORK, BUT IT IS NOT BEGINNER FRIENDLY YOU DO NOT NEED TO TOUCH THIS METHOD
      *                 For anyone who wants to learn more about compareTo read this link, but you have been warned: https://medium.com/omarelgabrys-blog/comparing-objects-307400115f88
      * @param otherMovie The other movie object
-     * @return 0 if the songs are equal and other numbers if not
+     * @return 0 if the movies are equal and other numbers if not
      */
     @Override
     public int compareTo(Movie otherMovie) {
@@ -160,7 +160,7 @@ public class Movie implements Comparable<Movie> {
         System.out.println(Movie2);
 
         // Using the 'equals' method2
-        System.out.println("Songs are equal: " + Movie1.equals(Movie2));
+        System.out.println("Movies are equal: " + Movie1.equals(Movie2));
 
         // Updating Movie2 to the same values as Movie1
         Movie2.setTitle("Reply 1988");
@@ -168,6 +168,6 @@ public class Movie implements Comparable<Movie> {
 
         // Prints out Movie2 and checks if the Movies are now equal
         System.out.println(Movie2);
-        System.out.println("Songs are equal: " + (Movie1.equals(Movie2) && Movie2.equals(Movie1)));
+        System.out.println("Movies are equal: " + (Movie1.equals(Movie2) && Movie2.equals(Movie1)));
     }
 }

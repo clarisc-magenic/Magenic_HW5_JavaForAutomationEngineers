@@ -46,7 +46,7 @@ public class MovieDatabaseTest {
         List<Movie> foundMovies = db.findMovieByTitle("happy");
         Assert.assertTrue(foundMovies.contains(Movie1));
 
-        // Finds all songs by artist that match the second song and verify that the second song is found
+        // Finds all movies by artist that match the second movie and verify that the second movie is found
         foundMovies = db.findMovieByGenre("romance");
         Assert.assertTrue(foundMovies.contains(Movie2));
     }

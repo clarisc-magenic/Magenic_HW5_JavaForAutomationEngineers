@@ -9,7 +9,7 @@ public class MovieDatabase {
     private ArrayList<Movie> movieArchive;
 
     /**
-     * Creates an instance of the SongDatabase class
+     * Creates an instance of the MovieDatabase class
      */
     public MovieDatabase() {
         movieArchive = new ArrayList<Movie>();
@@ -54,10 +54,9 @@ public class MovieDatabase {
                     movieArchive.remove(movie);
 
                     // NOTE: This is a really tricky line of code but it IS needed, before reading the rest think why a 'break' ('return' works too) is needed here
-                    // Explanation: This break will stop going through each song in the song archive. If you don't stop the loop here,
-                    //              the loop will try to grab the next song in the archive, BUT the archive as been change.
+                    // Explanation: This break will stop going through each movie in the movie archive. If you don't stop the loop here,
+                    //              the loop will try to grab the next movie in the archive, BUT the archive as been change.
                     //              This will throw an exception, thus you should normally escape a loop, if what you are cycling through is changed.
-                    //              You can avoid 'break'ing if you are cleaver, and in fact the 'deleteSongFromPlaylist' method does this
                     break;
                 }
             }
