@@ -216,11 +216,13 @@ public class MovieStore {
         // Initializes the ms console app
         MovieStore ms = new MovieStore();
 
+
         // Originally Added Movies
         ms.movieDatabase.addMovie(new Movie("lovestruck in the City", "Drama", false));
         ms.movieDatabase.addMovie(new Movie("Kingdom", "Horror", false));
         ms.movieDatabase.addMovie(new Movie("love", "Drama", false));
 
+        ms.findMovie("Kingdom");
         ms.mainMenu();
     }
 }
