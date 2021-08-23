@@ -15,24 +15,32 @@ public class Movie implements Comparable<Movie> {
     private String genre;
 
     /**
+     * The Year of the movie
+     */
+    private String year;
+
+    /**
      * The checkout status
      */
     private boolean checkoutStatus;
+
 
     /**
      * Creates an instance of the Movie class
      * @param title The movie title
      * @param genre The artist's name
      */
-    public Movie(String title, String genre, boolean checkoutStatus) {
+    public Movie(String title, String genre, String year, boolean checkoutStatus) {
         this.title = title;
         this.genre = genre;
+        this.year = year;
         this.checkoutStatus = checkoutStatus;
     }
 
     public Movie(String title, String genre) {
         this.title = title;
         this.genre = genre;
+        this.year = year;
     }
 
     /**
@@ -49,6 +57,14 @@ public class Movie implements Comparable<Movie> {
      */
     public String getGenre() {
         return genre;
+    }
+
+    /**
+     * Gets the year
+     * @return The year
+     */
+    public String getYear() {
+        return year;
     }
 
     /**
@@ -76,6 +92,14 @@ public class Movie implements Comparable<Movie> {
     }
 
     /**
+     * Sets the year if it is not null or whitespace
+     * @param year The year
+     */
+    protected void setYear(String year) {
+        this.year = year;
+    }
+
+    /**
      * Sets the checkoutStatus if it is not null or whitespace
      * @param checkoutStatus The genre
      */
@@ -91,10 +115,10 @@ public class Movie implements Comparable<Movie> {
     public String toString()
     {
         if(getCheckoutStatus()) {
-            return "MOVIE TITLE: '" + getTitle() + "' genre: '" + getGenre() + "' " + "Status: Being rented";
+            return "MOVIE TITLE: '" + getTitle() + "' genre: '" + getGenre() + "' "+ "' year: '" + getYear() + "' " + "Status: Being rented";
         }
         else {
-            return "MOVIE TITLE: '" + getTitle() + "' genre: '" + getGenre() + "' "+ "Status: Available for rent";
+            return "MOVIE TITLE: '" + getTitle() + "' genre: '" + getGenre() + "' year: '" + getYear() + "' "+ "' "+ "Status: Available for rent";
         }
     }
 
@@ -148,9 +172,9 @@ public class Movie implements Comparable<Movie> {
      * @param args The array of arguments
      */
     public static void main(String[] args) {
-        Movie Movie1 = new Movie("Reply 1988", "Comedy",false);
-        Movie Movie2 = new Movie("Start Up", "Romance",false);
-        Movie Movie3 = new Movie("NameOne", "ArtOne",false);
+        Movie Movie1 = new Movie("Reply 1988", "Comedy", "2000", false);
+        Movie Movie2 = new Movie("Start Up", "Romance", "2003", false);
+        Movie Movie3 = new Movie("NameOne", "ArtOne","2005", false);
 
         Movie1.compareTo(Movie2);
         Movie1.compareTo(Movie3);

@@ -13,7 +13,7 @@ public class OptionStrings {
     /**
      * The Viewing Options
      */
-    public static final String[] VIEW_OPTIONS = {"View all Movies", "Search Movie by Title", "Search Movie by Genre", "Back"};
+    public static final String[] VIEW_OPTIONS = {"View all Movies", "Search Movie by Title", "Search Movie by Genre", "Search Movie by Year", "Back"};
 
     /**
      * The Manage Menu Options

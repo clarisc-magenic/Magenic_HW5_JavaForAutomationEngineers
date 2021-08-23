@@ -96,19 +96,35 @@ public class MovieDatabase {
     }
 
     /**
+     * Returns a List of models.Movies object from archive, and an empty list if no movies from the year are found
+     * @param year The movie year
+     * @return The List of models.Movie object, and an empty list if no movies from the year are found
+     */
+    public List<Movie> findMovieByYear(String year) {
+        List<Movie> listOfMovies = new ArrayList<Movie>();
+
+        for (Movie s : movieArchive) {
+            if (s.getYear().equals(year)) {
+                listOfMovies.add(s);
+            }
+        }
+        return listOfMovies;
+    }
+
+    /**
      * The main method of the Movie Database class
      * @param args The array of arguments
      */
     public static void main(String[] args) {
         MovieDatabase db = new MovieDatabase();
-        db.addMovie(new Movie("Hotel Del Luna", "Romance",false));
-        db.addMovie(new Movie("Oh My Ghost", "Fantasy",false));
-        db.addMovie(new Movie("Fight for my Way", "Romantic Comedy",false));
+        db.addMovie(new Movie("Hotel Del Luna", "Romance","2000",false));
+        db.addMovie(new Movie("Oh My Ghost", "Fantasy","2005",false));
+        db.addMovie(new Movie("Fight for my Way", "Romantic Comedy","2011",false));
         System.out.println(db.getMovieArchive().size());
 
-        System.out.println("Movie archive contains?: "+db.movieArchive.contains(new Movie("TEST NAME", "TEST ART",false)));
-        db.deleteMovie(new Movie("TEST NAME", "TEST ART",false));
-        System.out.println(db.movieArchive.contains(new Movie("Fight for my Way", "Romantic Comedy",false)));
+        System.out.println("Movie archive contains?: "+db.movieArchive.contains(new Movie("TEST NAME", "TEST ART","2012",false)));
+        db.deleteMovie(new Movie("TEST NAME", "TEST ART","2011",false));
+        System.out.println(db.movieArchive.contains(new Movie("Fight for my Way", "Romantic Comedy","2011",false)));
         List<Movie> ListOfMovies = new ArrayList<Movie>();
         String movieTitle = "Hotel Del Luna";
 

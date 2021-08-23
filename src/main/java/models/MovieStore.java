@@ -104,8 +104,15 @@ public class MovieStore {
             if(foundMovieByGenre!=null) {
                 System.out.println(foundMovieByGenre);
             }
+        } else if (userChoiceText.equals("Search Movie by Year")) {
+            // Takes the user input for the movie genre then display t
+            String movieYear = UserHelperMethods.getInputFromPrompt("What movie year would you like to check:");
+            Movie foundMovieByYear = findMovieByYear(movieYear);
+            if(foundMovieByYear!=null) {
+                System.out.println(foundMovieByYear);
+            }
         }
-            // Waits for the process to finish then returns to the Main Menu
+        // Waits for the process to finish then returns to the Main Menu
             System.out.println("Returning to Main Menu...");
             mainMenu();
 
@@ -186,6 +193,11 @@ public class MovieStore {
         }
     }
 
+    /**
+     * Finds the movie for the given genre, if more than one movie is found, the user is prompted to select which movie from all found
+     * @param genre The Movie genre
+     * @return The movie object
+     */
     private Movie findMovieByGenre(String genre) {
         // Finds all movies that match the name in the database
         List<Movie> foundMovies = movieDatabase.findMovieByGenre(genre);
@@ -209,6 +221,33 @@ public class MovieStore {
     }
 
     /**
+     * Finds the movie for the given year, if more than one movie is found, the user is prompted to select which movie from all found
+     * @param year The Movie year
+     * @return The movie object
+     */
+    private Movie findMovieByYear(String year) {
+        // Finds all movies that match the year in the database
+        List<Movie> foundMovies = movieDatabase.findMovieByYear(year);
+
+        // If no movies were found display a message to the user, and return null
+        if (foundMovies.isEmpty()) {
+            System.out.println("Movie/s with year: " + year +" was not found, returning to main menu:");
+            return null;
+        }
+
+        // If only one movie matches return that movie
+        else if (foundMovies.size() == 1) {
+            return foundMovies.get(0);
+        }
+
+        // If multiple movies match call the displayOptionsAndWaitForValidOption method to have the user select from the movies
+        else {
+            int selectedMovieIndex = UserHelperMethods.displayOptionsAndWaitForValidOption(foundMovies);
+            return foundMovies.get(selectedMovieIndex);
+        }
+    }
+
+    /**
      * The main method and console app
      * @param args The list of arguments
      */
@@ -216,11 +255,10 @@ public class MovieStore {
         // Initializes the ms console app
         MovieStore ms = new MovieStore();
 
-
         // Originally Added Movies
-        ms.movieDatabase.addMovie(new Movie("lovestruck in the City", "Drama", false));
-        ms.movieDatabase.addMovie(new Movie("Kingdom", "Horror", false));
-        ms.movieDatabase.addMovie(new Movie("love", "Drama", false));
+        ms.movieDatabase.addMovie(new Movie("lovestruck in the City", "Drama", "2020", false));
+        ms.movieDatabase.addMovie(new Movie("Kingdom", "Horror", "2020", false));
+        ms.movieDatabase.addMovie(new Movie("love", "Drama", "2020", false));
 
         ms.findMovie("Kingdom");
         ms.mainMenu();
